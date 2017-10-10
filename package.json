@@ -15,5 +15,13 @@
     "pug": "^2.0.0-rc.4",
     "querystring": "^0.2.0",
     "request": "^2.83.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohitlb/2factor.in-MEAN.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rohitlb/2factor.in-MEAN/issues"
+  },
+  "homepage": "https://github.com/rohitlb/2factor.in-MEAN#readme"
 }
