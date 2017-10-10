@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
 var qs =  require('querystring');
-var http = require('http');
+//var http = require('http');
 var keys = require('./private/keys');
 
 var app = express();
