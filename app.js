@@ -29,6 +29,9 @@ app.get('/', function (req,res) {
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
 
+        console.log(body);
+
+
         var temp = JSON.parse(body);
         console.log(body);
         console.log(temp.Details);
