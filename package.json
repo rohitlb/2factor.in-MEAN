@@ -1,0 +1,19 @@
+{
+  "name": "2factor.in-MEAN",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [],
+  "author": "Rohit Singh",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "pug": "^2.0.0-rc.4",
+    "querystring": "^0.2.0",
+    "request": "^2.83.0"
+  }
+}
