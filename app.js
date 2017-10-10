@@ -65,11 +65,12 @@ app.post('/sendOTP',function (req, res) {
         });
 });
 
+
+// Verify OTP here
 app.get('/VerifyOTP', function (req,res) {
     res.render('verify');
     res.end();
 });
-
 app.post('/VerifyOTP',function (req, res) {
     otp = req.body.number;
     console.log(otp);
