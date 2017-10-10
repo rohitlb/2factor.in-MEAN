@@ -35,12 +35,13 @@ app.get('/', function (req,res) {
     });
 });
 
+
+// sending OTP to number
 app.get('/sendOTP', function (req,res) {
     res.render('index');
 
     res.end();
 });
-
 app.post('/sendOTP',function (req, res) {
     number = req.body.number;
     console.log(number);
