@@ -1,3 +1,4 @@
+//add your API key here...
 var api_key = "your API key";
 
 module.exports =
