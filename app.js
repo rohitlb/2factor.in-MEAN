@@ -7,7 +7,7 @@ var keys = require('./private/keys');
 
 var app = express();
 
-// get session ID from 2fa.in 
+// get session ID from 2fa.in (body received by sending the request for OTP)
 var sid = null ;
 var otp = null ;
 app.set('port', 4000);
