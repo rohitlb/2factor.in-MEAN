@@ -9,6 +9,8 @@ var app = express();
 
 // get session ID from 2fa.in (body received by sending the request for OTP)
 var sid = null ;
+
+// getting OTP from frontend
 var otp = null ;
 app.set('port', 4000);
 //app.set('views', path.join(__dirname, "views"));
