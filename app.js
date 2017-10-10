@@ -30,8 +30,7 @@ app.get('/', function (req,res) {
         if (error) throw new Error(error);
 
         console.log(body);
-
-
+        // as here we are getting a string.. so to parse it .. we have to parse it to JSON
         var temp = JSON.parse(body);
         console.log(body);
         console.log(temp.Details);
