@@ -19,7 +19,7 @@ app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 
-// for balance check
+// API for checking balance
 app.get('/', function (req,res) {
     var options = { method: 'GET',
         url: 'http://2factor.in/API/V1/'+keys.api_key()+'/BAL/SMS',
