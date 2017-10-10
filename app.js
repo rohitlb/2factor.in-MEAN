@@ -29,7 +29,6 @@ app.get('/', function (req,res) {
 
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
-
         console.log(body);
         // as here we are getting a string.. so to parse it .. we have to parse it to JSON
         var temp = JSON.parse(body);
