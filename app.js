@@ -2,15 +2,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
 var qs =  require('querystring');
-//var http = require('http');
+var http = require('http');
 var keys = require('./private/keys');
 
 var app = express();
-
-// get session ID from 2fa.in (body received by sending the request for OTP)
 var sid = null ;
-
-// getting OTP from frontend
 var otp = null ;
 app.set('port', 4000);
 //app.set('views', path.join(__dirname, "views"));
@@ -19,8 +15,7 @@ app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : false}));
 
-
-// API for checking balance
+// for balance check
 app.get('/', function (req,res) {
     var options = { method: 'GET',
         url: 'http://2factor.in/API/V1/'+keys.api_key()+'/BAL/SMS',
@@ -29,20 +24,19 @@ app.get('/', function (req,res) {
 
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
-        console.log(body);
-        // as here we are getting a string.. so to parse it .. we have to parse it to JSON
+
         var temp = JSON.parse(body);
         console.log(body);
         console.log(temp.Details);
     });
 });
 
-
-// sending OTP to number
 app.get('/sendOTP', function (req,res) {
     res.render('index');
+
     res.end();
 });
+
 app.post('/sendOTP',function (req, res) {
     number = req.body.number;
     console.log(number);
@@ -54,24 +48,24 @@ app.post('/sendOTP',function (req, res) {
         form: {} };
 
     request(options, function (error, response, body) {
-        if (error) throw new Error(error);
-
-        console.log(body);
-        var temp = JSON.parse(body);
-        console.log(temp.Details);
-
-        sid = temp.Details;
-
-
-        });
+        if (error) {
+            throw new Error(error);
+        }
+        else {
+            console.log(body);
+            var temp = JSON.parse(body);
+            console.log(temp.Details);
+            sid = temp.Details;
+            res.render('verify');
+        }
+    });
 });
 
-
-// Verify OTP here
 app.get('/VerifyOTP', function (req,res) {
     res.render('verify');
     res.end();
 });
+
 app.post('/VerifyOTP',function (req, res) {
     otp = req.body.number;
     console.log(otp);
